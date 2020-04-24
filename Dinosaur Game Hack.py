@@ -1,3 +1,11 @@
+'''
+AUTHOR 	- GAGAN sgagankumar@gmail.com
+GITHUB 	- @sgagankumar
+VERSION - 1.0
+DATE 	- 24/4/2020
+'''
+
+# Importing Modules
 import win32gui
 import pyautogui
 import mouse
@@ -130,7 +138,6 @@ def detectObstacle(x, yu, yd, theme):
 	return False
 
 
-
 # Function: AutoPlay Game
 def autoPlay(eyex, eyey):
 	xPos=eyex+95
@@ -153,13 +160,11 @@ def autoPlay(eyex, eyey):
 	print("out")
 
 
-
-
-
 # Function: Main
 def main():
 	global done
 	
+	# Check for internet and opening browser
 	print("PROGRAM RUNNING...\n")
 	time.sleep(2)
 	if is_not_connected(WebPage):
@@ -172,7 +177,7 @@ def main():
 		exit()
 	time.sleep(3)
 
-
+	# Position the dinosaur and Fetch Theme
 	print("\nClick on the dinosaur head!")
 	clickx, clicky = getPositions()
 	time.sleep(1)
@@ -186,7 +191,7 @@ def main():
 		print("Dark Mode")
 	time.sleep(1)
 
-
+	# ERROR Fail to recognise Dino Location
 	t = threading.Thread(target=animate)
 	t.start()		#start loading animation
 	eyex, eyey = getEye(clickx, clicky, theme)
@@ -196,7 +201,7 @@ def main():
 		exit()
 	print("\rDino position : ",eyex,":",eyey)
 
-
+	# Auto Play Game
 	print("\nDino indentified! Starting AutoPlay")
 	autoPlay(eyex, eyey)
 
